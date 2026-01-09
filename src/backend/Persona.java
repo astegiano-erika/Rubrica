@@ -1,3 +1,5 @@
+package backend;
+
 public class Persona {
 
     private String nome;
@@ -49,7 +51,7 @@ public class Persona {
         this.eta=eta;
     }
 
-    //conversions and checks
+    //conversions
     public String toTextFormat() {
         return this.nome + ";" + this.cognome + ";" + this.indirizzo + ";" + this.telefono + ";" + this.eta;
     }
@@ -57,6 +59,4 @@ public class Persona {
         String[] elem = line.split(";");
         return new Persona(elem[0], elem[1], elem[2], elem[3], Integer.parseInt(elem[4]));
     }
-
-    //TO DO: add checks
 }
