@@ -1,6 +1,7 @@
 package frontend;
 
 import backend.Persona;
+import java.util.Comparator;
 import java.util.Vector;
 import javax.swing.table.AbstractTableModel;
 
@@ -39,8 +40,9 @@ public class RubricaTable extends AbstractTableModel {
         };
     }
 
-    public void refresh(Vector<Persona> newData) {
-        this.elenco = newData;
+    public void refresh(Vector<Persona> newElenco) {
+        newElenco.sort(Comparator.comparing(Persona::getNome)); //case sensitive
+        this.elenco = newElenco;
         fireTableDataChanged();  //di libreria per avvisare modifica contenuto
     }
 }
